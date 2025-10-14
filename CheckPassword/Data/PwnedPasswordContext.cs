@@ -22,7 +22,6 @@ namespace CheckPassword.Data
                 entity.ToTable("passwords");
                 entity.HasKey(e => e.Hash);
                 entity.Property(e => e.Hash)
-                    .HasMaxLength(40) // SHA1 hash is 40 characters
                     .IsRequired();
             });
         }

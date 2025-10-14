@@ -1,13 +1,21 @@
 ﻿@model Password;
 
 @{
+	Layout = null;
 }
+<style>
+	body {
+		background-color: #0f1724;
+		color: #fff;
+	}
+	h1 {
+		text-align: center;
+	}
+</style>
 
 <h1>Check how strong is your password</h1>
-<form asp-controller="CheckPassword" asp-action="">
-	
-	<label>Enter your password below</label>
-	<input type="text" />
-	<input type="submit" />
-
+<form asp-controller="CheckPassword" asp-action="Validate" method="post">
+	<label for="password">Enter your password below</label>
+	<input id="password" name="password" type="text" required />
+	<input type="submit" value="Check" />
 </form>

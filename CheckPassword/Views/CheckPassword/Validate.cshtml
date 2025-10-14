@@ -1,0 +1,38 @@
+﻿@model Evaluation;
+@{
+	var score = Model.Score;
+	var hasUpper = Model.HasUpper;
+	var hasLower = Model.HasLower;
+	var hasNumber = Model.HasNumber;
+	var hasSymbol = Model.HasSymbol;
+	string evalGrade = String.Empty;
+	if (score < 40)
+		evalGrade = "weak";
+	else if (score < 60)
+		evalGrade = "good";
+	else if (score < 80)
+		evalGrade = "strong";
+	else
+		evalGrade = "Excellent";
+}
+
+<style>
+	.true {
+		color: green;
+	}
+
+	.false {
+		color: red;
+	}
+</style>
+<div class="container">
+	<p class="evaluation-grade">@evalGrade</p>
+	<p class="score">Score: <span class="score-percentage">@score / 100</span></p>
+	<p>Your password should have</p>
+	<ul class="check-list">
+		<li class="@hasUpper">at least one uppercase letter</li>
+		<li class="@hasLower">at least one lowercase letter</li>
+		<li class="@hasNumber">at least one number</li>
+		<li class="@hasSymbol">at least one symbol</li>
+	</ul>
+</div>
