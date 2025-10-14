@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CheckPassword")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bd79de171ce8a522bbf072ed597c26055d53fe8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72300a20b6b145f0634b0b2d236921d2f32762bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("CheckPassword")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CheckPassword")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

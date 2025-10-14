@@ -1,10 +1,11 @@
 ﻿@model Evaluation;
 @{
+	Layout = null;
 	var score = Model.Score;
-	var hasUpper = Model.HasUpper;
-	var hasLower = Model.HasLower;
-	var hasNumber = Model.HasNumber;
-	var hasSymbol = Model.HasSymbol;
+	var hasUpper = Model.HasUpper ? "true" : "false";
+	var hasLower = Model.HasLower ? "true" : "false";
+	var hasNumber = Model.HasNumber ? "true" : "false";
+	var hasSymbol = Model.HasSymbol ? "true" : "false";
 	string evalGrade = String.Empty;
 	if (score < 40)
 		evalGrade = "weak";
@@ -17,6 +18,25 @@
 }
 
 <style>
+	body {
+		font-family: sans-serif;
+		background-color: #0f1724;
+		color: #fff;
+	}
+
+	.container {
+		width: 800px;
+		margin: 100px auto;
+	}
+
+	.evaluation-grade {
+		font-size: 48px;
+	}
+
+	.evaluation-grade span {
+		text-transform: capitalize;
+	}
+
 	.true {
 		color: green;
 	}
@@ -24,11 +44,44 @@
 	.false {
 		color: red;
 	}
+
+	.weak {
+		color: red;
+	}
+
+	.good {
+		color: orange;
+	}
+
+	.strong {
+		color: yellow;
+	}
+
+	.excellent {
+		color: green;
+	}
+
+	.score {
+		font-size: 48px;
+	}
+
+	.should-have {
+		font-size: 32px;
+	}
+
+	.check-list {
+		list-style: none;
+		font-size: 24px;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
 </style>
 <div class="container">
-	<p class="evaluation-grade">@evalGrade</p>
-	<p class="score">Score: <span class="score-percentage">@score / 100</span></p>
-	<p>Your password should have</p>
+	<p class="evaluation-grade">Your password is <span class="@evalGrade">@evalGrade</span></p>
+	<p class="score">Score: <span class="score-percentage @evalGrade">@score</span><span class="excellent"> / 100</span></p>
+	<p class="should-have">Your password should have</p>
 	<ul class="check-list">
 		<li class="@hasUpper">at least one uppercase letter</li>
 		<li class="@hasLower">at least one lowercase letter</li>
